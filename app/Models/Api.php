@@ -15,4 +15,9 @@ class Api extends Model
         return DB::table('events')
             ->get();
     }
+    static function getPelatihan()
+    {
+        return DB::table('pelatihan')
+            ->get();
+    }
 }

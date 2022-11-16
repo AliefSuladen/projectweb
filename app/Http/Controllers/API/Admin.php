@@ -19,6 +19,11 @@ class Admin extends Controller
         $data = Api::getEvent();
         return response()->json($data);
     }
+    public function pelatihan()
+    {
+        $data = Api::getPelatihan();
+        return response()->json($data);
+    }
 
     /**
      * Show the form for creating a new resource.
