@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\API\EventController;
+use App\Http\Controllers\API\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('event', [EventController::class, 'event']);
+Route::get('event', [Admin::class, 'event']);
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

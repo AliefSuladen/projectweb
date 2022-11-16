@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Api;
 
 
-class EventController extends Controller
+class Admin extends Controller
 {
     /**
      * Display a listing of the resource.
