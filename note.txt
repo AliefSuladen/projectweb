@@ -1,1 +1,2 @@
 1.migrate dulu database baru jalankan webny
+2.akses http://127.0.0.1:8000/register untuk menambahkan user admin
