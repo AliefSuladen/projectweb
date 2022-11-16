@@ -35,4 +35,14 @@ class Event extends Model
             ->where('id', $id)
             ->delete();
     }
+    public function AllDataPelatihan()
+    {
+        return DB::table('pelatihan')
+            ->get();
+    }
+    public function InsertDataPelatihan($data)
+    {
+        DB::table('pelatihan')
+            ->insert($data);
+    }
 }

@@ -109,4 +109,45 @@ class ProgramController extends Controller
         $this->Event->DeleteData($id);
         return redirect()->route('event')->with('pesan', 'Data Berhasil Di Hapus');
     }
+
+    public function pelatihanlist()
+    {
+        $data = [
+            'title' => 'Pelatihan',
+            'event' => $this->Event->AllDataPelatihan(),
+        ];
+
+        return view('admin.program.pelatihan', $data);
+    }
+    public function pelatihanadd()
+    {
+        $data = [
+            'title' => 'Pelatihan',
+            'event' => $this->Event->AllDataPelatihan(),
+        ];
+
+        return view('admin.program.pelatihanadd', $data);
+    }
+    public function pelatihaninsert()
+    {
+        Request()->validate([
+            'nama' => 'required',
+            'lokasi' => 'required',
+            'tanggal' => 'required',
+            'isi' => 'required',
+            'foto' => 'required',
+        ]);
+        $file = Request()->foto;
+        $filename = $file->getClientOriginalName();
+        $file->move(public_path('foto'), $filename);
+        $data = [
+            'nama' => Request()->nama,
+            'lokasi' => Request()->lokasi,
+            'tanggal' => Request()->tanggal,
+            'isi' => Request()->isi,
+            'foto' => $filename,
+        ];
+        $this->Event->InsertDataPelatihan($data);
+        return redirect()->route('pelatihan')->with('pesan', 'Data Berhasil Ditambahkan');
+    }
 }

@@ -30,3 +30,8 @@ Route::post('/postevn', [ProgramController::class, 'evninsert'])->name('postevn'
 Route::get('/edevn/{id}', [ProgramController::class, 'evnedit'])->name('edevn');
 Route::post('/upevn/{id}', [ProgramController::class, 'evnupdate'])->name('upevn');
 Route::get('/delevn/{id}', [ProgramController::class, 'evndelete'])->name('delevn');
+
+//pelatihan
+Route::get('/pelatihan', [ProgramController::class, 'pelatihanlist'])->name('pelatihan');
+Route::get('/addpelatihan', [ProgramController::class, 'pelatihanadd'])->name('addpelatihan');
+Route::post('/postpelatihan', [ProgramController::class, 'pelatihaninsert'])->name('postpelatihan');
