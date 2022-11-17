@@ -20,4 +20,9 @@ class Api extends Model
         return DB::table('pelatihan')
             ->get();
     }
+    static function getKelurahan()
+    {
+        return DB::table('kelurahan')
+            ->get();
+    }
 }

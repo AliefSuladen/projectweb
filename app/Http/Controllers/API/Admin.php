@@ -24,6 +24,11 @@ class Admin extends Controller
         $data = Api::getPelatihan();
         return response()->json($data);
     }
+    public function kelurahan()
+    {
+        $data = Api::getKelurahan();
+        return response()->json($data);
+    }
 
     /**
      * Show the form for creating a new resource.
