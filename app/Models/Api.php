@@ -25,4 +25,9 @@ class Api extends Model
         return DB::table('kelurahan')
             ->get();
     }
+    static function getPegawai()
+    {
+        return DB::table('pegawai')
+            ->join('kelurahan', 'kelurahan.id_kelurahan', '=', 'pegawai.id_kelurahan', 'left');
+    }
 }
