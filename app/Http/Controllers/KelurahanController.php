@@ -100,44 +100,103 @@ class KelurahanController extends Controller
         return redirect()->route('kelurahan')->with('pesan', 'Data Berhasil Di Hapus');
     }
 
-    public function pelatihanlist()
+    public function pegawailist()
     {
         $data = [
-            'title' => 'Pelatihan',
-            'event' => $this->Event->AllDataPelatihan(),
+            'title' => 'Pegawai Kelurahan',
+            'pegawai' => $this->Kelurahan->AllDataPegawai(),
+
+
         ];
 
-        return view('admin.program.pelatihan', $data);
+        return view('admin.kelurahan.pegawailist', $data);
     }
-    public function pelatihanadd()
+    public function pegawaiadd()
     {
         $data = [
-            'title' => 'Pelatihan',
-            'event' => $this->Event->AllDataPelatihan(),
+            'title' => 'Pegawai Kelurahan',
+            'pegawai' => $this->Kelurahan->AllDataPegawai(),
+            'kelurahan' => $this->Kelurahan->AllData(),
+
         ];
 
-        return view('admin.program.pelatihanadd', $data);
+        return view('admin.kelurahan.pegawaiadd', $data);
     }
-    public function pelatihaninsert()
+    public function pegawaiinsert()
     {
         Request()->validate([
-            'nama' => 'required',
-            'lokasi' => 'required',
-            'tanggal' => 'required',
-            'isi' => 'required',
+            'nama_pegawai' => 'required',
+            'nip' => 'required',
+            'jabatan' => 'required',
+            'id_kelurahan' => 'required',
             'foto' => 'required',
         ]);
         $file = Request()->foto;
         $filename = $file->getClientOriginalName();
         $file->move(public_path('foto'), $filename);
         $data = [
-            'nama' => Request()->nama,
-            'lokasi' => Request()->lokasi,
-            'tanggal' => Request()->tanggal,
-            'isi' => Request()->isi,
+            'nama_pegawai' => Request()->nama_pegawai,
+            'nip' => Request()->nip,
+            'jabatan' => Request()->jabatan,
+            'id_kelurahan' => Request()->id_kelurahan,
             'foto' => $filename,
         ];
-        $this->Event->InsertDataPelatihan($data);
-        return redirect()->route('pelatihan')->with('pesan', 'Data Berhasil Ditambahkan');
+        $this->Kelurahan->InsertDataPegawai($data);
+        return redirect()->route('pegawai')->with('pesan', 'Data Berhasil Ditambahkan');
+    }
+    public function pegawaiedit($id)
+    {
+        $data = [
+            'title' => 'Edit Pegawai',
+            'pegawai' => $this->Kelurahan->DetailDataPegawai($id),
+            'kelurahan' => $this->Kelurahan->AllData(),
+        ];
+
+        return view('admin.kelurahan.pegawaiedit', $data);
+    }
+
+    public function pegawaiupdate($id)
+    {
+        Request()->validate([
+            'nama_pegawai' => 'required',
+            'nip' => 'required',
+            'jabatan' => 'required',
+            'id_kelurahan' => 'required',
+        ]);
+        if (Request()->foto <> "") {
+            $pegawai = $this->Kelurahan->DetailDataPegawai($id);
+            if ($pegawai->foto <> "") {
+                unlink(public_path('foto') . '/' . $pegawai->foto);
+            }
+            $file = Request()->foto;
+            $filename = $file->getClientOriginalName();
+            $file->move(public_path('foto'), $filename);
+            $data = [
+                'nama_pegawai' => Request()->nama_pegawai,
+                'nip' => Request()->nip,
+                'jabatan' => Request()->jabatan,
+                'id_kelurahan' => Request()->id_kelurahan,
+                'foto' => $filename,
+            ];
+            $this->Kelurahan->UpdateDataPegawai($id, $data);
+        } else {
+            $data = [
+                'nama_pegawai' => Request()->nama_pegawai,
+                'nip' => Request()->nip,
+                'jabatan' => Request()->jabatan,
+                'id_kelurahan' => Request()->id_kelurahan,
+            ];
+            $this->Kelurahan->UpdateDataPegawai($id, $data);
+        }
+        return redirect()->route('pegawai')->with('pesan', 'Data Berhasil Di Update');
+    }
+    public function pegawaidelete($id)
+    {
+        $pegawai = $this->Kelurahan->DetailDataPegawai($id);
+        if ($pegawai->foto <> "") {
+            unlink(public_path('foto') . '/' . $pegawai->foto);
+        }
+        $this->Kelurahan->DeleteDataPegawai($id);
+        return redirect()->route('pegawai')->with('pesan', 'Data Berhasil Di Hapus');
     }
 }

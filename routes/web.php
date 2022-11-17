@@ -38,10 +38,17 @@ Route::get('/addpelatihan', [ProgramController::class, 'pelatihanadd'])->name('a
 Route::post('/postpelatihan', [ProgramController::class, 'pelatihaninsert'])->name('postpelatihan');
 
 //KELURAHAN
-//event
 Route::get('/kelurahan', [KelurahanController::class, 'kelurahanlist'])->name('kelurahan');
 Route::get('/addkelurahan', [KelurahanController::class, 'kelurahanadd'])->name('addkelurahan');
 Route::post('/postkelurahan', [KelurahanController::class, 'kelurahaninsert'])->name('postkelurahan');
 Route::get('/edkel/{id_kelurahan}', [KelurahanController::class, 'kelurahanedit'])->name('edkel');
 Route::post('/upkel/{id_kelurahan}', [KelurahanController::class, 'kelurahanupdate'])->name('upkel');
 Route::get('/delkel/{id_kelurahan}', [KelurahanController::class, 'kelurahandelete'])->name('delkel');
+
+//PEGAWAI 
+Route::get('/pegawai', [KelurahanController::class, 'pegawailist'])->name('pegawai');
+Route::get('/addpegawai', [KelurahanController::class, 'pegawaiadd'])->name('addpegawai');
+Route::post('/postpegawai', [KelurahanController::class, 'pegawaiinsert'])->name('postpegawai');
+Route::get('/edpeg/{id_pegawai}', [KelurahanController::class, 'pegawaiedit'])->name('edpeg');
+Route::post('/uppeg/{id_pegawai}', [KelurahanController::class, 'pegawaiupdate'])->name('uppeg');
+Route::get('/delpeg/{id_pegawai}', [KelurahanController::class, 'pegawaidelete'])->name('delpeg');

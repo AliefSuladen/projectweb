@@ -36,4 +36,33 @@ class Kelurahan extends Model
             ->where('id_kelurahan', $id)
             ->delete();
     }
+    public function AllDataPegawai()
+    {
+        return DB::table('pegawai')
+            ->join('kelurahan', 'kelurahan.id_kelurahan', '=', 'pegawai.id_kelurahan', 'left')
+            ->get();
+    }
+    public function InsertDataPegawai($data)
+    {
+        DB::table('pegawai')
+            ->insert($data);
+    }
+    public function DetailDataPegawai($id)
+    {
+        return DB::table('pegawai')
+            ->join('kelurahan', 'kelurahan.id_kelurahan', '=', 'pegawai.id_kelurahan', 'left')
+            ->where('id_pegawai', $id)->first();
+    }
+    public function UpdateDataPegawai($id, $data)
+    {
+        DB::table('pegawai')
+            ->where('id_pegawai', $id)
+            ->update($data);
+    }
+    public function DeleteDataPegawai($id)
+    {
+        DB::table('pegawai')
+            ->where('id_pegawai', $id)
+            ->delete();
+    }
 }
