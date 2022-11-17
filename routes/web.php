@@ -42,6 +42,6 @@ Route::post('/postpelatihan', [ProgramController::class, 'pelatihaninsert'])->na
 Route::get('/kelurahan', [KelurahanController::class, 'kelurahanlist'])->name('kelurahan');
 Route::get('/addkelurahan', [KelurahanController::class, 'kelurahanadd'])->name('addkelurahan');
 Route::post('/postkelurahan', [KelurahanController::class, 'kelurahaninsert'])->name('postkelurahan');
-// Route::get('/edevn/{id}', [KelurahanController::class, 'evnedit'])->name('edevn');
-// Route::post('/upevn/{id}', [KelurahanController::class, 'evnupdate'])->name('upevn');
-// Route::get('/delevn/{id}', [KelurahanController::class, 'evndelete'])->name('delevn');
+Route::get('/edkel/{id_kelurahan}', [KelurahanController::class, 'kelurahanedit'])->name('edkel');
+Route::post('/upkel/{id_kelurahan}', [KelurahanController::class, 'kelurahanupdate'])->name('upkel');
+Route::get('/delkel/{id_kelurahan}', [KelurahanController::class, 'kelurahandelete'])->name('delkel');

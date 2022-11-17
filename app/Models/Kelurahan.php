@@ -19,4 +19,21 @@ class Kelurahan extends Model
         DB::table('kelurahan')
             ->insert($data);
     }
+    public function DetailData($id)
+    {
+        return DB::table('kelurahan')
+            ->where('id_kelurahan', $id)->first();
+    }
+    public function UpdateData($id, $data)
+    {
+        DB::table('kelurahan')
+            ->where('id_kelurahan', $id)
+            ->update($data);
+    }
+    public function DeleteData($id)
+    {
+        DB::table('kelurahan')
+            ->where('id_kelurahan', $id)
+            ->delete();
+    }
 }

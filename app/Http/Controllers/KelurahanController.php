@@ -59,59 +59,45 @@ class KelurahanController extends Controller
     }
 
 
-    public function evnedit($id)
+    public function kelurahanedit($id)
     {
         $data = [
-            'title' => 'Event',
-            'event' => $this->Event->DetailData($id),
+            'title' => 'Edit Kelurahan',
+            'kelurahan' => $this->Kelurahan->DetailData($id),
         ];
 
-        return view('admin.program.evnedit', $data);
+        return view('admin.kelurahan.kelurahanedit', $data);
     }
 
-    public function evnupdate($id)
+    public function kelurahanupdate($id)
     {
         Request()->validate([
             'nama' => 'required',
-            'lokasi' => 'required',
-            'tanggal' => 'required',
+            'luas' => 'required',
+            'jml_penduduk' => 'required',
+            'kepadatan' => 'required',
+            'kdpos' => 'required',
+            'kdmendagri' => 'required',
+            'alamat' => 'required',
             'isi' => 'required',
         ]);
-        if (Request()->foto <> "") {
-            $event = $this->Event->DetailData($id);
-            if ($event->foto <> "") {
-                unlink(public_path('foto') . '/' . $event->foto);
-            }
-            $file = Request()->foto;
-            $filename = $file->getClientOriginalName();
-            $file->move(public_path('foto'), $filename);
-            $data = [
-                'nama' => Request()->nama,
-                'lokasi' => Request()->lokasi,
-                'tanggal' => Request()->tanggal,
-                'isi' => Request()->isi,
-                'foto' => $filename,
-            ];
-            $this->Event->UpdateData($id, $data);
-        } else {
-            $data = [
-                'nama' => Request()->nama,
-                'lokasi' => Request()->lokasi,
-                'tanggal' => Request()->tanggal,
-                'isi' => Request()->isi,
-            ];
-            $this->Event->UpdateData($id, $data);
-        }
-        return redirect()->route('event')->with('pesan', 'Data Berhasil Di Update');
+        $data = [
+            'nama' => Request()->nama,
+            'luas' => Request()->luas,
+            'jml_penduduk' => Request()->jml_penduduk,
+            'kepadatan' => Request()->kepadatan,
+            'kdpos' => Request()->kdpos,
+            'kdmendagri' => Request()->kdmendagri,
+            'alamat' => Request()->alamat,
+            'isi' => Request()->isi,
+        ];
+        $this->Kelurahan->UpdateData($id, $data);
+        return redirect()->route('kelurahan')->with('pesan', 'Data Berhasil Di Update');
     }
-    public function evndelete($id)
+    public function kelurahandelete($id)
     {
-        $event = $this->Event->DetailData($id);
-        if ($event->foto <> "") {
-            unlink(public_path('foto') . '/' . $event->foto);
-        }
-        $this->Event->DeleteData($id);
-        return redirect()->route('event')->with('pesan', 'Data Berhasil Di Hapus');
+        $this->Kelurahan->DeleteData($id);
+        return redirect()->route('kelurahan')->with('pesan', 'Data Berhasil Di Hapus');
     }
 
     public function pelatihanlist()

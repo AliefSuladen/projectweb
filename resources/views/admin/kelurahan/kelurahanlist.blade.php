@@ -52,8 +52,8 @@
                         <td>{{$kel->kepadatan}}</td>
                         <td>{{$kel->luas}}</td>
                         <td class="text-center">
-                            <a href="{{route('edevn',$kel->id_kelurahan)}}" class="btn btn-xs btn-warning"> <i class="fa fa-pen"> </i> Edit</a>
-                            <a href="{{route('delevn',$kel->id_kelurahan)}}" onclick="return confirm('Anda Yakin...?')" class="btn btn-xs btn-danger"> <i class="fa fa-trash"> </i> Hapus</a>
+                            <a href="{{route('edkel',$kel->id_kelurahan)}}" class="btn btn-xs btn-warning"> <i class="fa fa-pen"> </i> Edit</a>
+                            <a href="{{route('delkel',$kel->id_kelurahan)}}" onclick="return confirm('Anda Yakin...?')" class="btn btn-xs btn-danger"> <i class="fa fa-trash"> </i> Hapus</a>
                         </td>
                     </tr>
                     @endforeach
