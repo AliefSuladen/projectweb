@@ -125,13 +125,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </li>
               </ul>
             </li>
-            <li class="nav-item">
-              <a href="{{ route('login') }}" class="nav-link ">
-                <i class="nav-icon fas fa-globe"></i>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-landmark"></i>
                 <p>
-                  Dashboard
+                  Data Kelurahan
+                  <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="kelurahan" class="nav-link {{request()->is('kelurahan') ? 'active' : ''}}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kelurahan</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pegawai" class="nav-link {{request()->is('pegawai') ? 'active' : ''}}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pegawai</p>
+                  </a>
+                </li>
+              </ul>
             </li>
 
           </ul>

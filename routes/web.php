@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\KelurahanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,12 @@ Route::get('/delevn/{id}', [ProgramController::class, 'evndelete'])->name('delev
 Route::get('/pelatihan', [ProgramController::class, 'pelatihanlist'])->name('pelatihan');
 Route::get('/addpelatihan', [ProgramController::class, 'pelatihanadd'])->name('addpelatihan');
 Route::post('/postpelatihan', [ProgramController::class, 'pelatihaninsert'])->name('postpelatihan');
+
+//KELURAHAN
+//event
+Route::get('/kelurahan', [KelurahanController::class, 'kelurahanlist'])->name('kelurahan');
+Route::get('/addkelurahan', [KelurahanController::class, 'kelurahanadd'])->name('addkelurahan');
+Route::post('/postkelurahan', [KelurahanController::class, 'kelurahaninsert'])->name('postkelurahan');
+// Route::get('/edevn/{id}', [KelurahanController::class, 'evnedit'])->name('edevn');
+// Route::post('/upevn/{id}', [KelurahanController::class, 'evnupdate'])->name('upevn');
+// Route::get('/delevn/{id}', [KelurahanController::class, 'evndelete'])->name('delevn');
