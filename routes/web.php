@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WebController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\KelurahanController;
 
@@ -18,7 +19,6 @@ use App\Http\Controllers\KelurahanController;
 */
 
 Route::get('/', [WebController::class, 'index'])->name('index');
-
 
 Auth::routes();
 

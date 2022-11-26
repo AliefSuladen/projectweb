@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Kategori;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +14,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Kategori::create([
+            'name' => 'Pendidikan',
+            'slug' => 'pendidikan'
+        ]);
+
+        Kategori::create([
+            'name' => 'Event',
+            'slug' => 'event'
+        ]);
+
+        Kategori::create([
+            'name' => 'Pelatihan',
+            'slug' => 'pelatihan'
+        ]);
     }
 }
