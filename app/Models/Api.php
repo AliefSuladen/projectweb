@@ -12,12 +12,7 @@ class Api extends Model
     use HasFactory;
     static function getEvent()
     {
-        return DB::table('events')
-            ->get();
-    }
-    static function getPelatihan()
-    {
-        return DB::table('pelatihan')
+        return DB::table('berita')
             ->get();
     }
     static function getKelurahan()

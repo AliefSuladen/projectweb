@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('event', [Admin::class, 'event']);
+Route::get('berita', [Admin::class, 'event']);
 Route::get('pelatihan', [Admin::class, 'pelatihan']);
 Route::get('kelurahan', [Admin::class, 'kelurahan']);
 Route::get('pegawai', [Admin::class, 'pegawai']);
