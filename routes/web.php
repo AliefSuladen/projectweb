@@ -24,18 +24,14 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-//event
-Route::get('/event', [ProgramController::class, 'evnlist'])->name('event');
-Route::get('/adevn', [ProgramController::class, 'evnadd'])->name('adevn');
+//BERITA
+Route::get('/berita', [ProgramController::class, 'evnlist'])->name('berita');
+Route::get('/adber', [ProgramController::class, 'evnadd'])->name('adber');
 Route::post('/postevn', [ProgramController::class, 'evninsert'])->name('postevn');
-Route::get('/edevn/{id}', [ProgramController::class, 'evnedit'])->name('edevn');
-Route::post('/upevn/{id}', [ProgramController::class, 'evnupdate'])->name('upevn');
-Route::get('/delevn/{id}', [ProgramController::class, 'evndelete'])->name('delevn');
+Route::get('/edber/{id}', [ProgramController::class, 'evnedit'])->name('edber');
+Route::post('/upber/{id}', [ProgramController::class, 'evnupdate'])->name('upber');
+Route::get('/delber/{id}', [ProgramController::class, 'evndelete'])->name('delber');
 
-//pelatihan
-Route::get('/pelatihan', [ProgramController::class, 'pelatihanlist'])->name('pelatihan');
-Route::get('/addpelatihan', [ProgramController::class, 'pelatihanadd'])->name('addpelatihan');
-Route::post('/postpelatihan', [ProgramController::class, 'pelatihaninsert'])->name('postpelatihan');
 
 //KELURAHAN
 Route::get('/kelurahan', [KelurahanController::class, 'kelurahanlist'])->name('kelurahan');
@@ -52,3 +48,15 @@ Route::post('/postpegawai', [KelurahanController::class, 'pegawaiinsert'])->name
 Route::get('/edpeg/{id_pegawai}', [KelurahanController::class, 'pegawaiedit'])->name('edpeg');
 Route::post('/uppeg/{id_pegawai}', [KelurahanController::class, 'pegawaiupdate'])->name('uppeg');
 Route::get('/delpeg/{id_pegawai}', [KelurahanController::class, 'pegawaidelete'])->name('delpeg');
+
+//KATEGORI
+Route::get('/kategori', [ProgramController::class, 'kategorilist'])->name('kategori');
+Route::get('/addkategori', [ProgramController::class, 'kategoriadd'])->name('addkategori');
+Route::post('/postkategori', [ProgramController::class, 'kategoriinsert'])->name('postkategori');
+Route::get('/delkat/{id_kategori}', [ProgramController::class, 'kategoridelete'])->name('delkat');
+
+//NOMOR PENTING
+Route::get('/nope', [ProgramController::class, 'nopelist'])->name('nope');
+Route::get('/addnope', [ProgramController::class, 'nopeadd'])->name('addnope');
+Route::post('/postnope', [ProgramController::class, 'nopeinsert'])->name('postnope');
+Route::get('/delnop/{id_kategori}', [ProgramController::class, 'nopedelete'])->name('delnop');

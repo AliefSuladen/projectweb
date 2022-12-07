@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Data Berita</h1>
+        <h1 class="m-0">Data Kategori</h1>
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
     </div>
     @endif
     <div class="card-header ">
-      <a href="{{route('adber')}}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
+      <a href="{{route('addkategori')}}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
       <form style="float: right" action="" method="">
         <input type="text">
       </form>
@@ -29,29 +29,20 @@
     <div class="card-body table-responsive">
       <table class="table table-striped">
         <thead>
-          <tr class="">
+          <tr class="text-center">
             <th>No</th>
-            <th>Nama </th>
-            <th>Kategori </th>
-            <th>Lokasi</th>
-            <th>Tanggal </th>
-            <th>Foto</th>
+            <th>Nama Kategori</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
           <?php $no = 1; ?>
-          @foreach ($event as $ev)
+          @foreach ($kategori as $ev)
           <tr>
             <td class="text-center">{{$no++; }}</td>
-            <td>{{$ev->nama}}</td>
             <td>{{$ev->nama_kategori}}</td>
-            <td>{{$ev->lokasi}}</td>
-            <td>{{$ev->tanggal}}</td>
-            <td><img src="{{asset('foto')}}/{{$ev->foto}}" height="50px"></td>
-            <td class="">
-              <a href="{{route('edber',$ev->id)}}" class="btn btn-xs btn-warning"> <i class="fa fa-pen"> </i> Edit</a>
-              <a href="{{route('delber',$ev->id)}}" onclick="return confirm('Anda Yakin...?')" class="btn btn-xs btn-danger"> <i class="fa fa-trash"> </i> Hapus</a>
+            <td class="text-center">
+              <a href="{{route('delkat',$ev->id_kategori)}}" onclick="return confirm('Anda Yakin...?')" class="btn btn-xs btn-danger"> <i class="fa fa-trash"> </i> Hapus</a>
             </td>
           </tr>
           @endforeach

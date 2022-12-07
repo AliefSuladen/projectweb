@@ -14,7 +14,7 @@
 <div class="col-md-12">
   <div class="card card-primary">
     <div class="card-header"></div>
-    <form action="{{route('upevn', $event->id)}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('upber', $event->id)}}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="card-body">
         <div class="row">
@@ -28,6 +28,23 @@
             <div class="form-group">
               <label>Lokasi</label>
               <input type="text" class="form-control" name="lokasi" value="{{$event->lokasi}}" required>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Kategori</label>
+              <select name="id_kategori" class="form-control">
+                <option value="<?= $event->id_kategori ?>"> <?= $event->nama_kategori ?> </option>
+                <?php foreach ($kategori as $key => $value) { ?>
+                  <option value="<?= $value->id_kategori ?>"><?= $value->nama_kategori ?></option>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>URL</label>
+              <input type="text" class="form-control" name="url" value="{{$event->url}}" required>
             </div>
           </div>
           <div class="col-md-3">

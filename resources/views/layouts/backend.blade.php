@@ -102,6 +102,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="nope" class="nav-link {{request()->is('nope') ? 'active' : ''}}">
+                <i class="nav-icon fas fa-globe"></i>
+                <p>
+                  Nomor Penting
+                </p>
+              </a>
+            </li>
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-clipboard-list"></i>
@@ -112,15 +120,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="event" class="nav-link {{request()->is('event') ? 'active' : ''}}">
+                  <a href="kategori" class="nav-link {{request()->is('kategori') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Event</p>
+                    <p>Kategori</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pelatihan" class="nav-link {{request()->is('pelatihan') ? 'active' : ''}}">
+                  <a href="berita" class="nav-link {{request()->is('berita') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Pelatihan</p>
+                    <p>Berita</p>
                   </a>
                 </li>
               </ul>

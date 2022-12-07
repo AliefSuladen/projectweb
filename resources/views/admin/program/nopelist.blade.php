@@ -20,7 +20,7 @@
     </div>
     @endif
     <div class="card-header ">
-      <a href="{{route('adber')}}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
+      <a href="{{route('addnope')}}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
       <form style="float: right" action="" method="">
         <input type="text">
       </form>
@@ -32,10 +32,7 @@
           <tr class="">
             <th>No</th>
             <th>Nama </th>
-            <th>Kategori </th>
-            <th>Lokasi</th>
-            <th>Tanggal </th>
-            <th>Foto</th>
+            <th>Nomor </th>
             <th>Action</th>
           </tr>
         </thead>
@@ -45,13 +42,9 @@
           <tr>
             <td class="text-center">{{$no++; }}</td>
             <td>{{$ev->nama}}</td>
-            <td>{{$ev->nama_kategori}}</td>
-            <td>{{$ev->lokasi}}</td>
-            <td>{{$ev->tanggal}}</td>
-            <td><img src="{{asset('foto')}}/{{$ev->foto}}" height="50px"></td>
+            <td>{{$ev->nope}}</td>
             <td class="">
-              <a href="{{route('edber',$ev->id)}}" class="btn btn-xs btn-warning"> <i class="fa fa-pen"> </i> Edit</a>
-              <a href="{{route('delber',$ev->id)}}" onclick="return confirm('Anda Yakin...?')" class="btn btn-xs btn-danger"> <i class="fa fa-trash"> </i> Hapus</a>
+              <a href="{{route('delnop',$ev->id)}}" onclick="return confirm('Anda Yakin...?')" class="btn btn-xs btn-danger"> <i class="fa fa-trash"> </i> Hapus</a>
             </td>
           </tr>
           @endforeach
